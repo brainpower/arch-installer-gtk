@@ -1,4 +1,3 @@
-
 Requirements
 ------------
  - python3
@@ -14,7 +13,8 @@ not necessary
 Usage
 -----
 run as root:
- # python3 main.py
+
+    # python3 main.py
 
 It is advised to read the [Installation Guide](https://wiki.archlinux.org/index.php/Installation_Guide) beforehand/whilst installing, since the installer does not cover all parts of the installation (yet).
 For example not all configuration files are covered and no bootloader will be written to your HDD's MBR.
