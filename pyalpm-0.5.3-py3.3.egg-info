@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: pyalpm
+Version: 0.5.3
+Summary: libalpm bindings for Python 3
+Home-page: http://projects.archlinux.org/users/remy/pyalpm.git
+Author: Rémy Oudompheng
+Author-email: remy@archlinux.org
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
