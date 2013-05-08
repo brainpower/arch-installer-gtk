@@ -404,8 +404,12 @@ class ArchInstallerGui(Gtk.Assistant):
 					pkglst += " " + x[1]
 
 		if pkglst:
+			self.isf.write("echo '# arch-chroot %s pacman-key --init'\n" % self.prefix)
+			self.isf.write("arch-chroot %s pacman-key --init || error_msg\n" % self.prefix)
+			self.isf.write("echo '# arch-chroot %s pacman-key --populate'\n" % self.prefix)
+			self.isf.write("arch-chroot %s pacman-key --init || error_msg\n" % self.prefix)
 			self.isf.write("echo '# arch-chroot %s pacman -S --noconfirm %s'\n" % (self.prefix,pkglst))
-			self.isf.write("arch-chroot %s pacman -S --noconfirm %s\n" % (self.prefix,pkglst))
+			self.isf.write("arch-chroot %s pacman -S --noconfirm %s || error_msg\n" % (self.prefix,pkglst))
 
 	def page5_configure(self):
 		self.isf.write("echo '# genfstab -p %s >> %s/etc/fstab'\n" % (self.prefix, self.prefix))
