@@ -444,12 +444,16 @@ class ArchInstallerGui(Gtk.Assistant):
 
 		for x in self.page3_ls: # mount root first
 			if x[0] and x[4] == "/":
+				self.isf.write("echo '# mkdir -p %s%s'\n" %(self.prefix,x[4]))
+				self.isf.write("mkdir -p %s%s || error_msg\n" %(self.prefix,x[4]))
 				self.isf.write("echo '# mount -t %s %s %s%s'\n" %(x[2],x[1],self.prefix,x[4]))
 				self.isf.write("mount -t %s %s %s%s || error_msg\n" %(x[2],x[1],self.prefix,x[4]))
 				break
 
 		for x in self.page3_ls: # mount all others
 			if x[0] and x[4] != "/":
+				self.isf.write("echo '# mkdir -p %s%s'\n" %(self.prefix,x[4]))
+				self.isf.write("mkdir -p %s%s || error_msg\n" %(self.prefix,x[4]))
 				self.isf.write("echo '# mount -t %s %s %s%s'\n" %(x[2],x[1],self.prefix,x[4]))
 				self.isf.write("mount -t %s %s %s%s || error_msg\n" %(x[2],x[1],self.prefix,x[4]))
 
