@@ -1,4 +1,3 @@
-
 # Copyright (C) 2013 anonymous <brainpower@gulli.com>
 
 # This program is free software: you can redistribute it and/or modify
@@ -407,7 +406,7 @@ class ArchInstallerGui(Gtk.Assistant):
 			self.isf.write("echo '# arch-chroot %s pacman-key --init'\n" % self.prefix)
 			self.isf.write("arch-chroot %s pacman-key --init || error_msg\n" % self.prefix)
 			self.isf.write("echo '# arch-chroot %s pacman-key --populate'\n" % self.prefix)
-			self.isf.write("arch-chroot %s pacman-key --init || error_msg\n" % self.prefix)
+			self.isf.write("arch-chroot %s pacman-key --populate || error_msg\n" % self.prefix)
 			self.isf.write("echo '# arch-chroot %s pacman -S --noconfirm %s'\n" % (self.prefix,pkglst))
 			self.isf.write("arch-chroot %s pacman -S --noconfirm %s || error_msg\n" % (self.prefix,pkglst))
 
